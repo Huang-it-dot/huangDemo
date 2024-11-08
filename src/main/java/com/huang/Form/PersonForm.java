@@ -4,15 +4,15 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class MyForm {
-	
-//	@NotNull
-	@Size(min = 2, max = 30)
-	private String name;
-	
+public class PersonForm {
+
 	@NotNull
-	@Min(18)
-	private int age;
+	@Size(min=2, max=30)
+	private String name;
+
+	@NotNull
+//	@Min(18)
+	private Integer age;
 
 	public String getName() {
 		return this.name;
@@ -22,17 +22,15 @@ public class MyForm {
 		this.name = name;
 	}
 
-	public int getAge() {
-		return this.age;
+	public Integer getAge() {
+		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
-	@Override
 	public String toString() {
-		return "MyForm [name=" + name + ", age=" + age + "]";
+		return "Person(Name: " + this.name + ", Age: " + this.age + ")";
 	}
 }
-

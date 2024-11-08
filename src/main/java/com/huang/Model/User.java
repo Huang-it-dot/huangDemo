@@ -1,21 +1,19 @@
 package com.huang.Model;
 
-import java.util.Date;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.Data;
 
+//@Data
 public class User {
 
-	private Integer id;
 	private String name;
-	private String password;
-	private Date date;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
+	private Integer age;
+	
+	private String userId;
+	
 
 	public String getName() {
 		return name;
@@ -25,20 +23,20 @@ public class User {
 		this.name = name;
 	}
 
-	public String getPassword() {
-		return password;
+	public Integer getAge() {
+		return age;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setAge(Integer age) {
+		this.age = age;
 	}
 
-	public Date getDate() {
-		return date;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
-}
+	}
