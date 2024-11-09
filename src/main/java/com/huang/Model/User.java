@@ -12,7 +12,7 @@ public class User {
 
 	private Integer age;
 	
-	private String userId;
+	private String user_id;
 	
 
 	public String getName() {
@@ -32,11 +32,11 @@ public class User {
 	}
 
 	public String getUserId() {
-		return userId;
+		return user_id;
 	}
 
 	public void setUserId(String userId) {
-		this.userId = userId;
+		this.user_id = userId;
 	}
 
 	}

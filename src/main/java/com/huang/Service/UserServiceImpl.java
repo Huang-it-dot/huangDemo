@@ -2,12 +2,14 @@ package com.huang.Service;
 
 
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class UserServiceImpl {//implements UserService{
+import com.huang.Mapper.UserMapper;
+import com.huang.Model.User;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserServiceImpl implements UserService{
 
 //
 //    int insert( String name,String userId);
@@ -15,13 +17,14 @@ public class UserServiceImpl {//implements UserService{
 //    User select ( String name,String userId);
 //
 //    void deleteUser ( String name,String userId);
-    //private UserMapper UserMapper;
+	@Autowired
+	private UserMapper userMapper;
 
 
 
-//    public User selectUser(String userId) {
-//        return userMapper.getUserInf(userId);
-//    }
+    public User selectUser(String userId) {
+        return userMapper.selectUser(userId);
+    }
 
 //    @Override
 //    public void deleteUser(String userId,String name) {

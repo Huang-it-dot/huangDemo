@@ -9,7 +9,7 @@ import com.huang.Model.User;
 @Mapper
 public interface UserMapper {
 	
-	User selectUser(String userId);
+	public User selectUser(String userId);
 	
 	
 //	   void createCard(Card card);

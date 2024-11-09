@@ -5,9 +5,20 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class PersonForm {
+	
+	@NotNull
+	private String userId;
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
 	@NotNull
-	@Size(min=2, max=30)
+//	@Size(min=2, max=30)
 	private String name;
 
 	@NotNull

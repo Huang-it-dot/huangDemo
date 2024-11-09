@@ -4,14 +4,11 @@ package com.huang.Service;
 
 import com.huang.Model.User;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
-import lombok.Data;
+
 
 public interface UserService {
 
-	User selectUser(String userId);
+	public User selectUser(String userId);
 	
 	
 	
