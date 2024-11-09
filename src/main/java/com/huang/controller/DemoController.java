@@ -34,7 +34,7 @@ public class DemoController {
 		return "form";
 	}
 
-	// チェック
+	// 入力項目チェック
 	@PostMapping("/")
 	public String checkPersonInfo(@Valid PersonForm personForm, BindingResult bindingResult, Model model) {
 
@@ -42,11 +42,13 @@ public class DemoController {
 			return "form";
 		}
 
+		//UserIdでuser情報取得
 		User user = service.selectUser(personForm.getUserId());
 
 		model.addAttribute("user", user);
 
 //		return "/results";
+		//確認画面に遷移
 		return "/myForm";
 	}
 
