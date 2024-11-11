@@ -51,6 +51,20 @@ public class DemoController {
 		//確認画面に遷移
 		return "/myForm";
 	}
+	
+	
+	// 入力項目チェック
+	@PostMapping("/updateUser")
+	public String updatePersonInfo(@Valid PersonForm personForm, BindingResult bindingResult, Model model) {
+//		//UserIdでuser情報取得
+//		User user = service.selectUser(personForm.getUserId());
+//
+//		model.addAttribute("user", user);
+
+//		return "/results";
+		//確認画面に遷移
+		return "/results";
+	}
 
 	@GetMapping("/results")
 	public String showForm2() {
