@@ -29,13 +29,13 @@ public class DemoController {
 	}
 
 	// 初期化
-	@GetMapping("/")
+	@GetMapping("/set")
 	public String showForm(PersonForm personForm, Model model) {
 		return "form";
 	}
 
 	// 入力項目チェック
-	@PostMapping("/")
+	@PostMapping("/set")
 	public String checkPersonInfo(@Valid PersonForm personForm, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
@@ -75,10 +75,10 @@ public class DemoController {
 		return "/results";
 	}
 
-	@GetMapping("/results")
+	@GetMapping("/home")
 	public String showForm2() {
 
-		return "results2";
+		return "home";
 	}
 	
 	@GetMapping("/login")
@@ -91,8 +91,6 @@ public class DemoController {
 		User user = service.selectUser("huang001", "1023");
       
 	System.out.println(user.getAddress());
-		
-		
 	    return "login";
 	}
 	
