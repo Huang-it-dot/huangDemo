@@ -8,13 +8,9 @@ import com.huang.Model.User;
 
 public interface UserService {
 
-	public User selectUser(String userId);
+	public User selectUser(String userId,String pwd);
+	
+	public int selectUserCount(String userId);
 	
 	
-	
-//    int insert( String name,String userId);
-//
-//    User selectUser ( String userId,String name);
-//
-//    void deleteUser ( String userId,String name);
 }

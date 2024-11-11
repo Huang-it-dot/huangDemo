@@ -4,6 +4,12 @@
 
 <mapper namespace="com.huang.Mapper.UserMapper">
  <select id="selectUser" parameterType="string" resultType="com.huang.Model.User">
-  SELECT * from public.user where user_id = #{userId}
+  SELECT * from public.users where user_id = #{userId} and pwd = #{pwd}
+ </select>
+ 
+ 
+ 
+  <select id="selectUserCount" parameterType="string" resultType="int">
+  SELECT COUNT(*) from  public.users where user_id = #{userId}
  </select>
 </mapper>

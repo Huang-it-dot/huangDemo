@@ -42,10 +42,19 @@ public class DemoController {
 			return "form";
 		}
 
-		//UserIdでuser情報取得
-		User user = service.selectUser(personForm.getUserId());
+		//UserIdでuser数
+		User user = service.selectUser(personForm.getUserId(),personForm.getPwd());
+		
+		
+		
 
-		model.addAttribute("user", user);
+		if(user.equals(null)) {
+		return "/results";
+		}
+		
+		
+		
+//		model.addAttribute("user", user);
 
 //		return "/results";
 		//確認画面に遷移
@@ -71,5 +80,22 @@ public class DemoController {
 
 		return "results2";
 	}
+	
+	@GetMapping("/login")
+	public String showLoginPage() {
+	    return "login";
+	}
+	
+	@GetMapping("/test")
+	public String selectTest() {
+		User user = service.selectUser("huang001", "1023");
+      
+	System.out.println(user.getAddress());
+		
+		
+	    return "login";
+	}
+	
+	
 
 }

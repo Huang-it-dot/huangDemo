@@ -9,20 +9,8 @@ import com.huang.Model.User;
 @Mapper
 public interface UserMapper {
 	
-	public User selectUser(String userId);
+	public User selectUser(String userId,String pwd);
 	
-	
-//	   void createCard(Card card);
-//
-//	    void updateCard(Card card);
-//
-//	    void deleteCard(String id);
-//
-//	    int getNumOfCards();
-//	
-	
-	
-	
-	
+	public int selectUserCount(String userId);	
 
 }

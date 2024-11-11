@@ -14,6 +14,15 @@ public class User {
 	
 	private String user_id;
 	
+	private String pwd;
+	
+	private String mail;
+	
+	private String address;
+	
+	private String auth;
+	
+	private Long tel;
 
 	public String getName() {
 		return name;
@@ -31,12 +40,55 @@ public class User {
 		this.age = age;
 	}
 
-	public String getUserId() {
+	public String getUser_id() {
 		return user_id;
 	}
 
-	public void setUserId(String userId) {
-		this.user_id = userId;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getAuth() {
+		return auth;
+	}
+
+	public void setAuth(String auth) {
+		this.auth = auth;
+	}
+
+	public Long getTel() {
+		return tel;
+	}
+
+	public void setTel(Long tel) {
+		this.tel = tel;
+	}
+	
+
+	
 
 	}
