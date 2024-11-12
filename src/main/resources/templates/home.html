@@ -5,26 +5,26 @@
    
   </head>
   <body>
-	 <h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
-     -<form th:action="@{/logout}" method="post" style="padding: 5px;">
+	 <!--<h1 th:inline="text">Hello <span th:remove="tag" sec:authentication="name">thymeleaf</span>!</h1>
+     <!--<form th:action="@{/logout}" method="post" style="padding: 5px;">
          <input type="submit" value="Sign Out"/>
-     </form>
-	 <label>詳細</label>
+     </form>-->
+	 <label>情報詳細</label>
 
 		<table style="border: 1px solid black; border-collapse: collapse;">
 		    <thead>
 				<tr>
-				    <th>UserId</th>
-				    <th>Name</th>
-				    <th>Email</th>
+				    <th style="border: 1px solid black; border-collapse: collapse;">UserId</th>
+				    <th style="border: 1px solid black; border-collapse: collapse;">Name</th>
+				    <th style="border: 1px solid black; border-collapse: collapse;">Email</th>
 				</tr>
 		    </thead>
 		    <tbody>
 		        <!-- 使用 th:each 动态生成表格行 -->
 		        <tr th:each="user : ${users}">
-		            <td th:text="${user.user_id}" >UserId: </td>
-		            <td th:text="${user.name}" >Name: </td>
-					<td th:text="${user.mail}" >Email: </td>
+		            <td th:text="${user.user_id}" style="border: 1px solid black; border-collapse: collapse;">UserId: </td>
+		            <td th:text="${user.name}" style="border: 1px solid black; border-collapse: collapse;">Name: </td>
+					<td th:text="${user.mail}" style="border: 1px solid black; border-collapse: collapse;">Email: </td>
 		        </tr>
 		    </tbody>
 		</table>
