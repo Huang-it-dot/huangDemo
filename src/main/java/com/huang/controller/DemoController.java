@@ -24,6 +24,12 @@ public class DemoController {
 	@Autowired
 	private UserService service;
 
+	private UserMapper map;
+
+	public DemoController(UserMapper map) {
+		this.map = map;
+	}
+
 	// 初期化
 	@GetMapping("/set")
 	public String showForm(PersonForm personForm, Model model) {
@@ -42,8 +48,13 @@ public class DemoController {
 		User user = service.selectUser(personForm.getUserId(),personForm.getPwd());
 		if(user.equals(null)) {
 		return "/results";
-		}	
+		}
+		
+		
+		
 //		model.addAttribute("user", user);
+
+//		return "/results";
 		//確認画面に遷移
 		return "/myForm";
 	}
@@ -60,29 +71,22 @@ public class DemoController {
 		return "/results";
 	}
 	
-	//11_11セキュリティー登録ページ
+	//セキュリティーより遷移した画面
+	@GetMapping("/home")
+	public String showForm2(Model model) {
+		
+		List<User> userInfo =service.selectAllUser();  
+		   model.addAttribute("users", userInfo);
+		return "home";
+	}	
 	@GetMapping("/login")
 	public String showLoginPage() {
 	    return "login";
 	}	
-	//11_11セキュリティー登録後、詳細画面
-	@GetMapping("/home")
-	public String showForm2(Model model) {	
-		List<User> userInfo =service.selectAllUser();  
-		   model.addAttribute("users", userInfo);
-		return "home";
+	@GetMapping("/test")
+	public String selectTest() {
+		User user = service.selectUser("huang001", "1023");      
+	System.out.println(user.getAddress());
+	    return "login";
 	}
-//    //11_11
-//	@GetMapping("/test")
-//	public String selectTest() {
-//		User user = service.selectUser("huang001", "1023");      
-//	System.out.println(user.getAddress());
-//	    return "login";
-//	}
-//	//11_12登録ページ
-//	@GetMapping("/signIn")
-//	public String showSignInPage(PersonForm personForm, Model model) {
-//	    return "signIn";
-//	}	
-	
 }
