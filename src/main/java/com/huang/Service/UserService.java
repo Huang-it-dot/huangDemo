@@ -2,6 +2,8 @@ package com.huang.Service;
 
 
 
+import java.util.List;
+
 import com.huang.Model.User;
 
 
@@ -12,7 +14,7 @@ public interface UserService {
 	
 	public int selectUserCount(String userId);
 
-	public User selectAllUser();
+	public List<User> selectAllUser();
 	
 	
 }

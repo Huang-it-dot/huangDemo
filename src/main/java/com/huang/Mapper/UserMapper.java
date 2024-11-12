@@ -1,6 +1,8 @@
 
 package com.huang.Mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.huang.Model.User;
@@ -13,5 +15,5 @@ public interface UserMapper {
 	
 	public int selectUserCount(String userId);	
 
-	public User selectAllUser();
+	public List<User> selectAllUser();
 }

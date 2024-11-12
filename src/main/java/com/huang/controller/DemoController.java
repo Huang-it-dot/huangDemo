@@ -1,5 +1,7 @@
 package com.huang.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,12 +75,8 @@ public class DemoController {
 	@GetMapping("/home")
 	public String showForm2(Model model) {
 		
-		User userInfo = service.selectAllUser();  
-		   if(userInfo.equals(null)) {
-			   System.out.println("該当情報取得していません。");	   
-		   }
-		   
-		   model.addAttribute("user", userInfo);
+		List<User> userInfo =service.selectAllUser();  
+		   model.addAttribute("users", userInfo);
 		return "home";
 	}	
 	@GetMapping("/login")

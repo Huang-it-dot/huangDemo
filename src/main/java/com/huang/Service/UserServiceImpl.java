@@ -2,6 +2,8 @@ package com.huang.Service;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.huang.Mapper.UserMapper;
@@ -20,7 +22,7 @@ public class UserServiceImpl implements UserService{
         return userMapper.selectUser(userId,pwd);
     }
 
-    public User selectAllUser() {
+    public List<User> selectAllUser() {
         return userMapper.selectAllUser();
     }
 
