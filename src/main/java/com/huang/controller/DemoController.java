@@ -24,12 +24,6 @@ public class DemoController {
 	@Autowired
 	private UserService service;
 
-	private UserMapper map;
-
-	public DemoController(UserMapper map) {
-		this.map = map;
-	}
-
 	// 初期化
 	@GetMapping("/set")
 	public String showForm(PersonForm personForm, Model model) {
@@ -78,21 +72,17 @@ public class DemoController {
 		   model.addAttribute("users", userInfo);
 		return "home";
 	}
-    //11_11
-	@GetMapping("/test")
-	public String selectTest() {
-		User user = service.selectUser("huang001", "1023");      
-	System.out.println(user.getAddress());
-	    return "login";
-	}
-	//11_12登録ページ
-	@GetMapping("/signIn")
-	public String showSignInPage(PersonForm personForm, Model model) {
-	    return "signIn";
-	}	
-	
-	
-	
-	
+//    //11_11
+//	@GetMapping("/test")
+//	public String selectTest() {
+//		User user = service.selectUser("huang001", "1023");      
+//	System.out.println(user.getAddress());
+//	    return "login";
+//	}
+//	//11_12登録ページ
+//	@GetMapping("/signIn")
+//	public String showSignInPage(PersonForm personForm, Model model) {
+//	    return "signIn";
+//	}	
 	
 }
