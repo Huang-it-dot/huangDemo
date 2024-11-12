@@ -13,4 +13,5 @@ public interface UserMapper {
 	
 	public int selectUserCount(String userId);	
 
+	public User selectAllUser();
 }

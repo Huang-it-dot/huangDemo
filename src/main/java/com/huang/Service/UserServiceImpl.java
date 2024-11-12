@@ -20,15 +20,14 @@ public class UserServiceImpl implements UserService{
         return userMapper.selectUser(userId,pwd);
     }
 
-
+    public User selectAllUser() {
+        return userMapper.selectAllUser();
+    }
 
 	@Override
 	public int selectUserCount(String userId) {
 		// TODO Auto-generated method stub
 		return userMapper.selectUserCount(userId);
 	}
-
-//	
-	
 	
 }

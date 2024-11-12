@@ -44,10 +44,6 @@ public class DemoController {
 
 		//UserIdでuser数
 		User user = service.selectUser(personForm.getUserId(),personForm.getPwd());
-		
-		
-		
-
 		if(user.equals(null)) {
 		return "/results";
 		}
@@ -60,8 +56,6 @@ public class DemoController {
 		//確認画面に遷移
 		return "/myForm";
 	}
-	
-	
 	// 入力項目チェック
 	@PostMapping("/updateUser")
 	public String updatePersonInfo(@Valid PersonForm personForm, BindingResult bindingResult, Model model) {
@@ -74,26 +68,27 @@ public class DemoController {
 		//確認画面に遷移
 		return "/results";
 	}
-
-	@GetMapping("/home")
-	public String showForm2() {
-
-		return "home";
-	}
 	
+	//セキュリティーより遷移した画面
+	@GetMapping("/home")
+	public String showForm2(Model model) {
+		
+		User userInfo = service.selectAllUser();  
+		   if(userInfo.equals(null)) {
+			   System.out.println("該当情報取得していません。");	   
+		   }
+		   
+		   model.addAttribute("user", userInfo);
+		return "home";
+	}	
 	@GetMapping("/login")
 	public String showLoginPage() {
 	    return "login";
-	}
-	
+	}	
 	@GetMapping("/test")
 	public String selectTest() {
-		User user = service.selectUser("huang001", "1023");
-      
+		User user = service.selectUser("huang001", "1023");      
 	System.out.println(user.getAddress());
 	    return "login";
 	}
-	
-	
-
 }

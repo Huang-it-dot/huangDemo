@@ -6,9 +6,9 @@
  <select id="selectUser" parameterType="string" resultType="com.huang.Model.User">
   SELECT * from public.users where user_id = #{userId} and pwd = #{pwd}
  </select>
- 
- 
- 
+   <select id="selectAllUser"  resultType="com.huang.Model.User">
+  SELECT * from  public.users 
+ </select>
   <select id="selectUserCount" parameterType="string" resultType="int">
   SELECT COUNT(*) from  public.users where user_id = #{userId}
  </select>
