@@ -30,7 +30,7 @@ public class DemoController {
 	// 登録画面表示
 	@GetMapping("/login")
 	public String showUserPage(Model model) {
-		model.addAttribute("personForm", new PersonForm());
+		model.addAttribute("user", new User());
 		return "login";
 	}	
 	//登録処理
@@ -44,7 +44,7 @@ public class DemoController {
         if (foundUser == null) {
             // 用户不存在	
         	model.addAttribute("error", "Invalid username or password");
-            return "login"; // 登录成功后跳转到成功页面         
+            return "login"; // 跳转到登録页面         
         } else {
             // 用户存在且密码匹配
         	model.addAttribute("user", foundUser);    
