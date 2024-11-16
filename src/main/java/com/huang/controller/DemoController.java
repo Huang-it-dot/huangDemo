@@ -43,7 +43,7 @@ public class DemoController {
 
         if (foundUser == null) {
             // 用户不存在	
-        	model.addAttribute("notExist", false);
+        	model.addAttribute("error", "Invalid username or password");
             return "login"; // 登录成功后跳转到成功页面         
         } else {
             // 用户存在且密码匹配
