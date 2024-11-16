@@ -6,4 +6,15 @@
  <select id="findUser" parameterType="string" resultType="com.huang.Model.User">
   SELECT * from public.users where id = #{userId} and pwd = #{pwd}
  </select>
+
+	<update id="updateUser" parameterType="com.huang.Model.User">
+		UPDATE public.users
+		SET name = #{name},
+		mail = #{mail},
+		tel = #{tel}::BIGINT,
+		address = #{address}
+		WHERE id = #{id};
+	</update>
+ 
+
 </mapper>

@@ -42,7 +42,6 @@ public class DemoController {
 
         if (foundUser != null) {
             // 用户存在且密码匹配
-//            model.addAttribute("message", "Login successful!");
         	model.addAttribute("user", foundUser);    
             return "myForm"; // 登录成功后跳转到成功页面
         } else {
@@ -50,6 +49,21 @@ public class DemoController {
             model.addAttribute("error", "Invalid username or password");
             return "login"; // 返回登录页面并显示错误
         }
+    }
+    
+    // 处理用户更新请求
+    @PostMapping("/updateDetails")
+    public String updateUserDetails(@ModelAttribute PersonForm personForm, Model model) {
+        // 调用服务层更新用户信息
+        User user = new User();
+    	user.setId(personForm.getUserId());
+		user.setName(personForm.getName());
+		user.setMail(personForm.getMail());
+		user.setAddress(personForm.getAddress());
+		user.setAge(personForm.getAge());
+		user.setTel(personForm.getTel());  	
+        service.updateUser(user);
+        return "userDetails"; // 假设是查看更新后用户信息的页面
     }
 //	// 入力項目チェック
 //	@PostMapping("/updateUser")

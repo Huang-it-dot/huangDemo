@@ -18,6 +18,12 @@ public class PersonForm {
 	private Integer age;
 
 	private String pwd;
+	
+	private String mail;
+	
+	private String address;
+	
+	private Long tel;
 
 	public String getUserId() {
 		return userId;
@@ -53,5 +59,29 @@ public class PersonForm {
 
 	public String toString() {
 		return "Person(Name: " + this.name + ", Age: " + this.age + ")";
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Long getTel() {
+		return tel;
+	}
+
+	public void setTel(Long tel) {
+		this.tel = tel;
 	}
 }

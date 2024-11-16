@@ -58,6 +58,8 @@
         <h2>User Details</h2>
         <form action="/updateDetails" method="POST">
             <!-- Hidden ID Field -->
+            <input type="hidden" name="userId" th:value="${user.id}">
+            
             <!-- Name Field -->
             <div class="form-group">
                 <label for="name">Name:</label>
@@ -66,12 +68,12 @@
             <!-- Email Field -->
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" th:value="${user.mail}">
+                <input type="email" id="email" name="mail" th:value="${user.mail}">
             </div>
             <!-- Phone Field -->
             <div class="form-group">
                 <label for="phone">Phone:</label>
-                <input type="text" id="phone" name="phone" th:value="${user.tel}">
+                <input type="text" id="phone" name="tel" th:value="${user.tel}">
             </div>
 
             <!-- Address Field -->

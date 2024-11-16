@@ -13,4 +13,5 @@ public interface UserMapper {
 	
 	public User findUser(String userId,String pwd);
 
+	public void updateUser(User user);
 }
