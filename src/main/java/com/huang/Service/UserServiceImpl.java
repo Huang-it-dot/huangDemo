@@ -16,20 +16,9 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private UserMapper userMapper;
 
-
-
-    public User selectUser(String userId,String pwd) {
-        return userMapper.selectUser(userId,pwd);
-    }
-
-    public List<User> selectAllUser() {
-        return userMapper.selectAllUser();
-    }
-
 	@Override
-	public int selectUserCount(String userId) {
-		// TODO Auto-generated method stub
-		return userMapper.selectUserCount(userId);
+	public User findUser(String userId, String pwd) {
+		return userMapper.findUser(userId, pwd);
 	}
 	
 }

@@ -12,17 +12,17 @@ public class User {
 
 	private Integer age;
 	
-	private String user_id;
+	private String id;
 	
 	private String pwd;
 	
-	private String mail;
-	
-	private String address;
-	
-	private String auth;
-	
-	private Long tel;
+//	private String mail;
+//	
+//	private String address;
+//	
+//	private String auth;
+//	
+//	private Long tel;
 
 	public String getName() {
 		return name;
@@ -40,14 +40,6 @@ public class User {
 		this.age = age;
 	}
 
-	public String getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
-
 	public String getPwd() {
 		return pwd;
 	}
@@ -56,39 +48,12 @@ public class User {
 		this.pwd = pwd;
 	}
 
-	public String getMail() {
-		return mail;
+	public String getId() {
+		return id;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setId(String id) {
+		this.id = id;
 	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getAuth() {
-		return auth;
-	}
-
-	public void setAuth(String auth) {
-		this.auth = auth;
-	}
-
-	public Long getTel() {
-		return tel;
-	}
-
-	public void setTel(Long tel) {
-		this.tel = tel;
-	}
-	
-
-	
 
 	}
