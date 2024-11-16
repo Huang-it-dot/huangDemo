@@ -36,9 +36,9 @@ public class DemoController {
 	//登録処理
     @PostMapping("/login")
     public String registerUser(@ModelAttribute PersonForm personForm, BindingResult result, Model model) { 	
-        if (result.hasErrors()) {
-            return "login";
-        }
+//        if (result.hasErrors()) {
+//            return "login";
+//        }
       User foundUser = service.findUser(personForm.getUserId(),personForm.getPwd());
 
         if (foundUser == null) {

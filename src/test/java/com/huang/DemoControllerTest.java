@@ -1,12 +1,14 @@
 package com.huang;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -18,6 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 
 import com.huang.Controller.DemoController;
+import com.huang.Model.User;
 import com.huang.Service.UserService;
 
 @SpringBootTest
@@ -38,5 +41,4 @@ class DemoControllerTest {
 	                .andExpect(view().name("login"))  // 返回的视图应该是 "register"
 	                .andExpect(model().attributeExists("user"));  // 确保 model 中存在 "user" 属性
 	    }
-
 }
