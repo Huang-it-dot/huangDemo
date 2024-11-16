@@ -42,7 +42,8 @@ public class DemoController {
 
         if (foundUser != null) {
             // 用户存在且密码匹配
-            model.addAttribute("message", "Login successful!");
+//            model.addAttribute("message", "Login successful!");
+        	model.addAttribute("user", foundUser);    
             return "myForm"; // 登录成功后跳转到成功页面
         } else {
             // 用户不存在或密码错误
