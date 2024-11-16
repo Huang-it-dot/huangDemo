@@ -6,7 +6,7 @@
  <select id="findUser" parameterType="string" resultType="com.huang.Model.User">
   SELECT * from public.users where id = #{userId} and pwd = #{pwd}
  </select>
-
+ 
 	<update id="updateUser" parameterType="com.huang.Model.User">
 		UPDATE public.users
 		SET name = #{name},
@@ -15,6 +15,9 @@
 		address = #{address}
 		WHERE id = #{id};
 	</update>
- 
+	<delete id="deleteUser" parameterType="String">
+		DELETE FROM public.users
+		WHERE id = #{userId};
+	</delete>
 
 </mapper>

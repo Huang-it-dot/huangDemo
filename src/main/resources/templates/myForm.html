@@ -12,7 +12,7 @@
 <body>
     <div class="form-container">
         <h2>User Details</h2>
-        <form action="/updateDetails" method="POST">
+        <form action="processUserAction" method="POST">
             <!-- Hidden ID Field -->
             <input type="hidden" name="userId" th:value="${user.id}">
             
@@ -39,10 +39,11 @@
             </div>
             <!-- Button Group -->
             <div class="btn-group">
-                <button type="submit" class="btn btn-update" onclick="updateDetails()">Update</button>
-                <button type="button" class="btn btn-delete" onclick="deleteUser()">Delete</button>
+                 <button type="submit" class="btn btn-update" name="action" value="update">Update</button>
+                 <button type="submit" class="btn btn-delete" name="action" value="delete">Delete</button>
             </div>
         </form>
+        
     </div>
 </body>
 </html>
