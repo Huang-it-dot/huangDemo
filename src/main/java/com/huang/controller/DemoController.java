@@ -63,7 +63,9 @@ public class DemoController {
 		user.setAge(personForm.getAge());
 		user.setTel(personForm.getTel());  	
         service.updateUser(user);
-        return "userDetails"; // 假设是查看更新后用户信息的页面
+     // 向页面传递一个消息，表示操作成功
+        model.addAttribute("updateSuccess", true);
+        return "updateResult"; // 返回带有 JavaScript 弹窗的页面
     }
 //	// 入力項目チェック
 //	@PostMapping("/updateUser")

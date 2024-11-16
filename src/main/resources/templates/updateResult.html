@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Result</title>
+</head>
+<body>
+    <h2>Update Completed</h2>
+
+    <!-- 根据传递的 updateSuccess 属性判断是否显示弹窗 -->
+    <script th:if="${updateSuccess}">
+        alert("User details updated successfully!");
+    </script>
+</body>
+</html>
