@@ -41,14 +41,14 @@ public class DemoController {
         }
       User foundUser = service.findUser(personForm.getUserId(),personForm.getPwd());
 
-        if (foundUser != null) {
+        if (foundUser == null) {
+            // 用户不存在	
+        	model.addAttribute("notExist", false);
+            return "login"; // 登录成功后跳转到成功页面         
+        } else {
             // 用户存在且密码匹配
         	model.addAttribute("user", foundUser);    
             return "myForm"; // 登录成功后跳转到成功页面
-        } else {
-            // 用户不存在或密码错误
-            model.addAttribute("error", "Invalid username or password");
-            return "login"; // 返回登录页面并显示错误
         }
     }
     
@@ -71,6 +71,7 @@ public class DemoController {
          } else if ("delete".equals(action)) {
              // 执行删除操作
               service.deleteUser(personForm.getUserId());
+              model.addAttribute("deleteSuccess", true);
               return "deleteResult"; // 返回带有 JavaScript 弹窗的页面
 
          }
