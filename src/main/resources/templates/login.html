@@ -2,6 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
     <head>
         <title>Spring Security Example </title>
+        
+                <!-- 导入CSS文件 -->
+    <link rel="stylesheet" href="/css/login.css">
     </head>
     <body>
         <form th:action="@{/login}" method="post" th:object="${personForm}">
