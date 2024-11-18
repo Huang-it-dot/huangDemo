@@ -5,9 +5,16 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>欢迎来到首页</h1>
+   <h1>欢迎来到首页</h1>
     <form action="/submit" method="post">
         <button type="submit">提交</button>
     </form>
+    <h1>JavaScript 页面跳转</h1>
+    <button onclick="redirectToSuccess()">跳转到成功页面</button>
+    <script>
+        function redirectToSuccess() {
+          window.location.href = "/success"; // 跳转到后端定义的 /success 页面
+        }
+    </script>
 </body>
 </html>
