@@ -24,40 +24,40 @@ import jakarta.validation.Valid;
 @Controller
 public class DemoController {
 	
-
+    //UserServiceクラスを依存性注入する
 	@Autowired
 	private UserService service;
-	// 登録画面表示
+	// 登録画面を表示する
 	@GetMapping("/login")
 	public String showUserPage(Model model) {
 		model.addAttribute("user", new User());
 		return "login";
 	}	
-	//登録処理
+	//登録処理する
     @PostMapping("/login")
     public String registerUser(@ModelAttribute PersonForm personForm, BindingResult result, Model model) { 	
 //        if (result.hasErrors()) {
 //            return "login";
 //        }
+    	//UserServiceを呼び出し、ユーザー情報を抽出する
       User foundUser = service.findUser(personForm.getUserId(),personForm.getPwd());
-
+        // ユーザー情報がnullの場合	
         if (foundUser == null) {
-            // 用户不存在	
         	model.addAttribute("error", "Invalid username or password");
-            return "login"; // 跳转到登録页面         
+            return "login"; // 登録画面に遷移する         
         } else {
-            // 用户存在且密码匹配
+            // ユーザー情報がある場合
         	model.addAttribute("user", foundUser);    
-            return "myForm"; // 登录成功后跳转到成功页面
+            return "myForm"; // 登录後、ユーザー詳細页面に遷移する
         }
     }
     
-    // 处理用户更新请求
+    // ユーザー情報処理
     @PostMapping("/processUserAction")
     public String updateUserDetails(@ModelAttribute PersonForm personForm, @RequestParam String action,Model model,RedirectAttributes redirectAttributes) {
     	
     	 if ("update".equals(action)) {
-             // 执行更新操作
+    		// ユーザー情報を更新処理
            User user = new User();
     	    	user.setId(personForm.getUserId());
     			user.setName(personForm.getName());
@@ -67,12 +67,12 @@ public class DemoController {
     			user.setTel(personForm.getTel());  	
     	        service.updateUser(user);
     	        model.addAttribute("updateSuccess", true);
-    	        return "updateResult"; // 返回带有 JavaScript 弹窗的页面
+    	        return "updateResult"; //ユーザー情報を更新成功画面に遷移する
          } else if ("delete".equals(action)) {
-             // 执行删除操作
+             // ユーザー情報を削除処理
               service.deleteUser(personForm.getUserId());
               model.addAttribute("deleteSuccess", true);
-              return "deleteResult"; // 返回带有 JavaScript 弹窗的页面
+              return "deleteResult"; // ユーザー情報を削除成功画面に遷移する
 
          }
 		return null;
