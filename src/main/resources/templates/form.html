@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>form</title>
+	<meta charset="UTF-8">
+	<title>form</title>
 </head>
+
 <body>
 
-	<form action="#" th:action="@{/set}" th:object="${personForm}"
-		method="post">
+	<form action="#" th:action="@{/set}" th:object="${personForm}" method="post">
 		<table>
 			<tr>
 				<td>UserId:</td>
@@ -33,4 +34,5 @@
 		</table>
 	</form>
 </body>
+
 </html>

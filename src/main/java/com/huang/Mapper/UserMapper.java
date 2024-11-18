@@ -18,4 +18,5 @@ public interface UserMapper {
 	
 	//ユーザー情報を削除する
 	public void deleteUser(String userId);
+
 }

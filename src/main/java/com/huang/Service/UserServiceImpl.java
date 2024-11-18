@@ -18,18 +18,14 @@ public class UserServiceImpl implements UserService{
 	public User findUser(String userId, String pwd) {
 		return userMapper.findUser(userId, pwd);
 	}
-
 	//ユーザー情報を更新する
 	@Override
 	public void updateUser(User user) {
-	    userMapper.updateUser(user);
-		
+	    userMapper.updateUser(user);	
 	}
-
 	//ユーザー情報を削除する
 	@Override
 	public void deleteUser(String userId) {
 		userMapper.deleteUser(userId);		
 	}
-	
 }
