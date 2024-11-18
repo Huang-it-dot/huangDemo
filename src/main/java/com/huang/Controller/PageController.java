@@ -18,4 +18,6 @@ public class PageController {
     public String submitForm() {
         return "success"; // 返回视图名称 "success" -> src/main/resources/templates/success.html
     }
+    
+    
 }
