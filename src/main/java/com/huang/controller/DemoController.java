@@ -77,4 +77,12 @@ public class DemoController {
          }
 		return null;
     }
+    
+    
+	// ajax画面を表示する
+	@GetMapping("/index")
+	public String showIndexPage() {
+//		model.addAttribute("user", new User());
+		return "index";
+	}	
 }
