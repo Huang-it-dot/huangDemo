@@ -24,6 +24,14 @@ function setWeather() {
     para.textContent = "";
   }
 } */
+/*アロー関数*/
+const textBox = document.querySelector("#textBox");
+const output = document.querySelector("#output");
+
+textBox.addEventListener("keydown", (event) => {
+  output.textContent = `"${event.key}" を押しました。`;
+});
+
   // 获取 select 元素
   const dropdown = document.getElementById("searchable-dropdown");
 
@@ -46,4 +54,40 @@ function setWeather() {
       console.error("加载数据失败：", error);
       dropdown.innerHTML = '<option value="">加载失败</option>';
     });
+	
+	
+	/*多选框*/
+	function submitForm() {
+	    const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
+	    const selectedValues = [];
+	    checkboxes.forEach(function(checkbox) {
+	      selectedValues.push(checkbox.value);
+	    });
+
+	    // 将选中的值打印到控制台或发送到服务器
+	    console.log('Selected Interests:', selectedValues);
+	  }
+	  
+	  // 多选框使用AJAX发送数据到服务器
+	  function submitForm01() {
+	      const checkboxes = document.querySelectorAll('input[name="interests"]:checked');
+	      const selectedValues = [];
+	      checkboxes.forEach(function(checkbox) {
+	        selectedValues.push(checkbox.value);
+	      });
+
+	     
+	      const xhr = new XMLHttpRequest();
+	      xhr.open('POST', '/submit01', true);
+	      xhr.setRequestHeader('Content-Type', 'application/json');
+	      xhr.onload = function() {
+	        if (xhr.status === 200) {
+	          console.log('Data submitted successfully:', xhr.responseText);
+	        }
+	      };
+	      xhr.send(JSON.stringify({ interests: selectedValues }));
+	    }
+	
+	
+	
 
