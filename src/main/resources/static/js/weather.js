@@ -1,4 +1,4 @@
-const select = document.querySelector("select");
+/*const select = document.querySelector("select");
 
 const para = document.getElementById("weather-message");
 
@@ -23,4 +23,27 @@ function setWeather() {
   } else {
     para.textContent = "";
   }
-}
+} */
+  // 获取 select 元素
+  const dropdown = document.getElementById("searchable-dropdown");
+
+  // 发送请求到后端
+  fetch("/api/weather")
+    .then((response) => response.json()) // 将响应解析为 JSON
+    .then((data) => {
+      // 清空下拉框内容
+      dropdown.innerHTML = "";
+
+      // 遍历返回的数据，动态创建 option 元素
+      data.forEach((item) => {
+        const option = document.createElement("option");
+        option.value = item.value; // 设置 value 属性
+        option.textContent = item.text; // 设置显示的文本
+        dropdown.appendChild(option); // 添加到 select 元素中
+      });
+    })
+    .catch((error) => {
+      console.error("加载数据失败：", error);
+      dropdown.innerHTML = '<option value="">加载失败</option>';
+    });
+

@@ -85,4 +85,10 @@ public class DemoController {
 //		model.addAttribute("user", new User());
 		return "index";
 	}	
+	// js画面の練習
+	@GetMapping("/weather")
+	public String getWeatherPage() {
+//		model.addAttribute("user", new User());
+		return "weather";
+	}	
 }

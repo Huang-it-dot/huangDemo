@@ -2,25 +2,28 @@ package com.huang.Controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import com.huang.Form.PersonForm;
-import com.huang.Model.User;
-import com.huang.Service.UserService;
+import com.huang.Model.Student;
 
-@Controller
+@RestController
+@RequestMapping("/api")
 public class JsLearnController {
-    // href="/"で画面遷移
-	//index.htmlに遷移
-    @GetMapping("/weather")
-    public String showWeather() {
-        return "weather"; 
-    }
-}
+
+	    @GetMapping("/weather")
+	    public List<Map<String, String>> getWeather() {
+	        List<Map<String, String>> weather = new ArrayList<>();
+	        weather.add(Map.of("value", "", "text", "選択してください"));
+	        weather.add(Map.of("value", "sunny", "text", "晴れ"));
+	        weather.add(Map.of("value", "rainy", "text", "雨"));
+	        weather.add(Map.of("value", "snowing", "text", "雪"));
+	        weather.add(Map.of("value", "overcast", "text", "曇り"));
+	        return weather;      
+	    }	    
+	}
+
+
+
