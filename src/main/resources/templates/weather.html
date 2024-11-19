@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>weather</title>
+</head>
+<body>
+
+<label for="weather">今日の天気を選択してください: </label>
+<select id="weather">
+  <option value="">--選択してください--</option>
+  <option value="sunny">晴れ</option>
+  <option value="rainy">雨</option>
+  <option value="snowing">雪</option>
+  <option value="overcast">曇り</option>
+</select>
+ <p id="weather-message"></p>
+</body>
+<script src="/js/weather.js" defer></script> <!-- 引入外部 JS 文件 -->
+
+</html>
