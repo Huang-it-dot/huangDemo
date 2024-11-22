@@ -24,13 +24,8 @@ public class StudentController {
     @GetMapping("/students")
     public List<Student> getAllStudents() {
         List<Student> students = studentService.getAllStudents();
-//        model.addAttribute("students", students); // 将用户列表添加到模型中
         return students; // 返回视图名
         }
-        
-       
-        
-    
     }
 
 //    @PostMapping

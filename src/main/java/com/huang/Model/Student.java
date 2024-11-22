@@ -8,8 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-@Entity
-//@Data
 @Table(name = "student")
 public class Student {
     @Id
@@ -56,6 +54,8 @@ public class Student {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
+
+
 
 //	public Student(Long id,String name, String email, Integer age) {
 //		super();
