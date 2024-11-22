@@ -35,10 +35,10 @@ class DemoControllerTest {
 	   // 测试GET请求，查看注册页面
 	    @Test
 	    public void showUserPage() throws Exception {
-	        // 模拟访问 /register 页面的 GET 请求
+	        // 模拟访问 /login 页面的 GET 请求
 	        mockMvc.perform(get("/login"))
 	                .andExpect(status().isOk())  // 返回200状态，表示请求成功
-	                .andExpect(view().name("login"))  // 返回的视图应该是 "register"
+	                .andExpect(view().name("login"))  // 返回的视图应该是 "login"
 	                .andExpect(model().attributeExists("user"));  // 确保 model 中存在 "user" 属性
 	    }
 }

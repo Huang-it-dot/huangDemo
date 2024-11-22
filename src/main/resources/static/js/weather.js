@@ -32,6 +32,7 @@ textBox.addEventListener("keydown", (event) => {
   output.textContent = `"${event.key}" を押しました。`;
 });
 
+/*下拉框*/
   // 获取 select 元素
   const dropdown = document.getElementById("searchable-dropdown");
 
