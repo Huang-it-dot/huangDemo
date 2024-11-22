@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,6 +31,13 @@
             </thead>
             <tbody id="student-list">
                 <!-- 学生数据将在这里动态填充 -->
+                <tr th:each="student : ${students}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.email}"></td>
+                <td th:text="${student.age}"></td>
+            </tr>
+                
             </tbody>
         </table>
     </div>

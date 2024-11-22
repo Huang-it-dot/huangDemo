@@ -9,7 +9,7 @@ import com.huang.Model.Student;
 
 import jakarta.persistence.EntityNotFoundException;
 
-@Service
+
 public interface StudentService {
 
 	public List<Student> getAllStudents();

@@ -5,35 +5,28 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.huang.Model.Student;
 import com.huang.Service.StudentService;
 
-import ch.qos.logback.core.model.Model;
-
 @RestController
-@RequestMapping("/api/students")
+@RequestMapping("/api")
 public class StudentController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping
-    public ResponseEntity<List<Student>> getAllStudents() {
+    @GetMapping("/students")
+    public List<Student> getAllStudents() {
         List<Student> students = studentService.getAllStudents();
-        for (Student student : students) {
-//        	 model.addAttribute("students", students);
-            // 处理 student
+//        model.addAttribute("students", students); // 将用户列表添加到模型中
+        return students; // 返回视图名
         }
-
-        
-        
-        System.out.print("yui");;
-		return null; 
-     
         
        
         
@@ -57,4 +50,4 @@ public class StudentController {
 //        studentService.deleteStudent(id);
 //        return ResponseEntity.noContent().build();
 //    }
-}
+
