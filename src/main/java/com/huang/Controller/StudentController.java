@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,23 +31,21 @@ public class StudentController {
     
 
     @PostMapping("/addStudent")
-    public ResponseEntity<Student> addStudent(@RequestBody Student student) {
+    public List<Student> addStudent(@RequestBody Student student) {
         // 假设你有一个保存学生的服务
         studentService.saveStudent(student);
         // 返回已保存的学生对象
-        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+        List<Student> students = studentService.getAllStudents();
+//        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+        return students;
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Student> getStudent(@PathVariable Long id) {
+        Student student = studentService.getStudentById(id);
+        return ResponseEntity.ok(student);
     }
 }
-
-    
-    
-    
-
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Student> getStudent(@PathVariable Long id) {
-//        Student student = studentService.getStudentById(id);
-//        return ResponseEntity.ok(student);
-//    }
 //
 //    @DeleteMapping("/{id}")
 //    public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {

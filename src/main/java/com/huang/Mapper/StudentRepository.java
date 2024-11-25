@@ -13,6 +13,7 @@ public interface StudentRepository{
 	
 	public void save(Student student);
 	
+	public Student getStudentById(Long id);
 	
 	
 }

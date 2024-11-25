@@ -6,18 +6,19 @@
 		SELECT * FROM public.student;
 	</select>
 
-<insert id="save" parameterType="com.huang.Model.Student" useGeneratedKeys="true" keyProperty="id" >
-    INSERT INTO public.student (age, email, name)
-    VALUES (#{age}, #{email}, #{name})
-    ON CONFLICT (id) DO NOTHING;
-</insert>
-<!-- 	<delete id="deleteUser" parameterType="String">
-		DELETE FROM public.users
-		WHERE id = #{userId};
-	</delete>
+	<insert id="save" parameterType="com.huang.Model.Student"
+		useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO public.student (age, email, name)
+		VALUES (#{age}, #{email}, #{name})
+		ON CONFLICT (id) DO NOTHING
+		RETURNING id;
+	</insert>
+	<!-- <delete id="deleteUser" parameterType="String"> DELETE FROM public.users 
+		WHERE id = #{userId}; </delete> -->
 
-	<select id="selectAll" resultType="com.huang.Model.User">
-		SELECT * from public.users;
-	</select> -->
+	<select id="getStudentById" parameterType="Long"
+		resultType="com.huang.Model.Student">
+		SELECT * from public.student;
+	</select>
 
 </mapper>

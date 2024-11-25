@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		     body: JSON.stringify(studentData) // 将数据转换为 JSON 格式
 		 })
         .then(response => response.json())
-        .then(data => addStudents(data))
+        .then(data => displayStudents(data))
         .catch(error => console.error('Error:', error));
     });
 
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayStudents(students) {
         const listElement = document.getElementById('student-list');
 		listElement.innerHTML = "";
+		
         students.forEach(student => {
             const row = document.createElement('tr');
             row.innerHTML = `
