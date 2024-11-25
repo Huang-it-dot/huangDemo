@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Management System</title>
-    <link rel="stylesheet" href="/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Student Management System</h1>
-        
-        <!-- 添加学生 -->
-        <form id="add-student-form">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="number" min="18" max="100" placeholder="Age" required>
-            <button type="submit">Add Student</button>
-        </form>
+	<div class="container">
+		<h1>Student Management System</h1>
 
-        <!-- 显示学生列表 -->
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Age</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="student-list">
-                <!-- 学生数据将在这里动态填充 -->
-                <tr th:each="student : ${students}">
-                <td th:text="${student.id}"></td>
-                <td th:text="${student.name}"></td>
-                <td th:text="${student.email}"></td>
-                <td th:text="${student.age}"></td>
-            </tr>
-                
-            </tbody>
-        </table>
-    </div>
+		<!-- 添加学生 -->
+		<form id="add-student-form">
+			<input type="text" id="name" name="name" placeholder="Name" required>
+			<input type="email" id="email" name="email" placeholder="Email"
+				required> <input type="number" id="age" name="age" min="18"
+				max="100" placeholder="Age" required>
+			<button type="submit">Add Student</button>
+		</form>
 
-    <script src="/js/script.js"></script>
+		<!-- 显示学生列表 -->
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Age</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody id="student-list">
+				<!-- 学生数据将在这里动态填充 -->
+				<tr th:each="student : ${students}">
+					<td type="hidden" th:text="${student.id}"></td>
+					<td th:text="${student.name}"></td>
+					<td th:text="${student.email}"></td>
+					<td th:text="${student.age}"></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+
+	<script src="/js/script.js"></script>
 </body>
 </html>

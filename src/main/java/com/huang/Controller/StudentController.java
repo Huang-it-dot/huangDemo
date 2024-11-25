@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,14 +27,21 @@ public class StudentController {
         List<Student> students = studentService.getAllStudents();
         return students; // 返回视图名
         }
-    }
+    
 
-//    @PostMapping
-//    public ResponseEntity<Student> createStudent(@RequestBody Student student) {
-//        Student savedStudent = studentService.saveStudent(student);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(savedStudent);
-//    }
-//
+    @PostMapping("/addStudent")
+    public ResponseEntity<Student> addStudent(@RequestBody Student student) {
+        // 假设你有一个保存学生的服务
+        studentService.saveStudent(student);
+        // 返回已保存的学生对象
+        return ResponseEntity.status(HttpStatus.CREATED).body(student);
+    }
+}
+
+    
+    
+    
+
 //    @GetMapping("/{id}")
 //    public ResponseEntity<Student> getStudent(@PathVariable Long id) {
 //        Student student = studentService.getStudentById(id);

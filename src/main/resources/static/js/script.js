@@ -4,13 +4,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // 添加学生
     document.getElementById('add-student-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        const formData = new FormData(this);
-        fetch('/api/students', {
-            method: 'POST',
-            body: formData
-        })
+		const name = document.getElementById("name").value;
+		const email = document.getElementById("email").value;
+		const age = document.getElementById("age").value;
+
+		// 创建一个学生对象
+		const studentData = {
+		    name: name,
+		    email: email,
+		    age: age
+		};
+
+		fetch('/api/addStudent', {
+		     method: 'POST',
+		     headers: {
+		         'Content-Type': 'application/json'
+		     },
+		     body: JSON.stringify(studentData) // 将数据转换为 JSON 格式
+		 })
         .then(response => response.json())
-        .then(data => addStudentToTable(data))
+        .then(data => addStudents(data))
         .catch(error => console.error('Error:', error));
     });
 
@@ -40,6 +53,24 @@ document.addEventListener('DOMContentLoaded', function() {
             listElement.appendChild(row);
         });
     }
+	function addStudents(student) {
+	       const listElement = document.getElementById('student-list');
+	   
+	           const row = document.createElement('tr');
+	           row.innerHTML = `
+	               <td>${student.id}</td>
+	               <td>${student.name}</td>
+	               <td>${student.email}</td>
+	               <td>${student.age}</td>
+	               <td>
+	                   <button onclick="editStudent(${student.id})">Edit</button>
+	                   <button onclick="deleteStudent(${student.id})">Delete</button>
+	               </td>
+	           `;
+	           listElement.appendChild(row);
+	      
+	   }
+
 
     // 编辑学生
     function editStudent(id) {

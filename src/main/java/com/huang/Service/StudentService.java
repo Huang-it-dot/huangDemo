@@ -14,8 +14,8 @@ public interface StudentService {
 
 	public List<Student> getAllStudents();
 
-//
-//   public  Student saveStudent(Student student);
+
+   public  void saveStudent(Student student);
 //
 //    public Student getStudentById(Long id);
 //

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>form</title>
+</head>
+
+<body>
+
+	<form action="#" th:action="@{/set}" th:object="${personForm}" method="post">
+		<table>
+			<tr>
+				<td>UserId:</td>
+				<td><input type="text" th:field="*{userId}" /></td>
+				<td th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">userId
+					Error</td>
+			</tr>
+			<tr>
+				<td>Name:</td>
+				<td><input type="text" th:field="*{name}" /></td>
+				<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name
+					Error</td>
+			</tr>
+			<tr>
+				<td>Age:</td>
+				<td><input type="text" th:field="*{age}" /></td>
+				<td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age
+					Error</td>
+			</tr>
+			<tr>
+				<td><button type="submit">登録</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>

@@ -21,9 +21,10 @@ public class StudentServiceImpl implements StudentService{
         return studentRepository.findAll();
     }
 
-//    public Student saveStudent(Student student) {
-//        return studentRepository.save(student);
-//    }
+    public void saveStudent(Student student) {
+    	studentRepository.save(student);
+	
+    }
 //
 //    public Student getStudentById(Long id) {
 //        return studentRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Student not found"));
