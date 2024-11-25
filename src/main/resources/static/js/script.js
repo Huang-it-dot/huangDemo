@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 显示学生数据
     function displayStudents(students) {
         const listElement = document.getElementById('student-list');
+		listElement.innerHTML = "";
         students.forEach(student => {
             const row = document.createElement('tr');
             row.innerHTML = `
