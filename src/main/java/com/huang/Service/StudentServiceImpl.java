@@ -31,8 +31,8 @@ public class StudentServiceImpl implements StudentService{
        return studentRepository.getStudentById(id);
     	
     }
-//
-//    public void deleteStudent(Long id) {
-//        studentRepository.deleteById(id);
-//    }
+
+    public void deleteStudent(Long id) {
+        studentRepository.deleteById(id);
+    }
 }

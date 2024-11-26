@@ -8,13 +8,16 @@
 
 	<insert id="save" parameterType="com.huang.Model.Student"
 		useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO public.student (age, email, name)
+		INSERT INTO public.student (age,
+		email, name)
 		VALUES (#{age}, #{email}, #{name})
-		ON CONFLICT (id) DO NOTHING
+		ON CONFLICT (id) DO
+		NOTHING
 		RETURNING id;
 	</insert>
-	<!-- <delete id="deleteUser" parameterType="String"> DELETE FROM public.users 
-		WHERE id = #{userId}; </delete> -->
+	<delete id="deleteById" parameterType="Long"> 
+		DELETE FROM public.student WHERE id = #{id};
+	</delete>
 
 	<select id="getStudentById" parameterType="Long"
 		resultType="com.huang.Model.Student">

@@ -15,5 +15,7 @@ public interface StudentRepository{
 	
 	public Student getStudentById(Long id);
 	
+	 public void deleteById(Long id);
+	
 	
 }

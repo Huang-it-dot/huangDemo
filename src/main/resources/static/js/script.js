@@ -101,17 +101,26 @@ function editStudent(id) {
 
 // 删除学生
 function deleteStudent(id) {
-	fetch(`/api/students/${id}`, {
-		method: 'DELETE'
-	})
-		.then(response => {
-			if (response.ok) {
-				fetchStudents(); // 重新获取学生列表
-			}
-		})
-		.catch(error => console.error('Error:', error));
+	fetch(`/edit/${id}`, {
+	     method: 'DELETE'
+	 })
+	 .then(response => {
+	     if (response.ok) {
+	    window.location.reload();
+	     } else {
+	         console.error('Failed to delete student');
+	     }
+	 })
+	 .catch(error => console.error('Error:', error));
 }
 
+// 获取所有学生并显示
+function fetchStudents() {
+	fetch('/api/students')
+		.then(response => response.json())
+		.then(students => displayStudents(students))
+		.catch(error => console.error('Error:', error));
+}
 // 获取单个学生
 function getStudentById(id) {
 	fetch(`/api/students/${id}`)

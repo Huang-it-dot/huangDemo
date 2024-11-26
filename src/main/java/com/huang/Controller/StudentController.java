@@ -37,7 +37,6 @@ public class StudentController {
         studentService.saveStudent(student);
         // 返回已保存的学生对象
         List<Student> students = studentService.getAllStudents();
-//        return ResponseEntity.status(HttpStatus.CREATED).body(student);
         return students;
     }
     @GetMapping("/students/{id}")
@@ -49,22 +48,12 @@ public class StudentController {
         return ResponseEntity.ok(student);
     }
     
-    @PutMapping("/{id}")
-    public ResponseEntity<?> updateStudent(@PathVariable Long id, @RequestBody Student updatedStudent) {
-        Student existingStudent = studentService.getStudentById(id);
-        if (existingStudent == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found");
-        }
-//        updatedStudent.setId(id); // 确保 ID 不变
-//        Student savedStudent = studentService.save(updatedStudent);
-//        return ResponseEntity.ok(savedStudent);
-		return null;
-    }
+//  @DeleteMapping("/{id}")
+//  public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
+//      studentService.deleteStudent(id);
+//      return ResponseEntity.noContent().build();
+//  }
+
 }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
-//        studentService.deleteStudent(id);
-//        return ResponseEntity.noContent().build();
-//    }
+
 
