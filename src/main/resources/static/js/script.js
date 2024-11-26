@@ -92,6 +92,7 @@ function editStudent(id) {
             console.log('Fetched student:', student);
             // 在这里处理获取到的学生数据，例如显示在表单中供用户编辑
             window.location.href = `/edit/${id}`;
+			//window.location.reload();
         })
         .catch(error => {
             console.error('Error fetching student:', error);
@@ -106,20 +107,13 @@ function deleteStudent(id) {
 	 })
 	 .then(response => {
 	     if (response.ok) {
+		//刷新当前页面
 	    window.location.reload();
 	     } else {
 	         console.error('Failed to delete student');
 	     }
 	 })
 	 .catch(error => console.error('Error:', error));
-}
-
-// 获取所有学生并显示
-function fetchStudents() {
-	fetch('/api/students')
-		.then(response => response.json())
-		.then(students => displayStudents(students))
-		.catch(error => console.error('Error:', error));
 }
 // 获取单个学生
 function getStudentById(id) {

@@ -1,23 +1,21 @@
 package com.huang.Service;
+
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.huang.Mapper.StudentRepository;
 import com.huang.Model.Student;
-
-import jakarta.persistence.EntityNotFoundException;
 
 
 public interface StudentService {
 
+	// 全ての学生情報取得する
 	public List<Student> getAllStudents();
 
+	// 学生情報保存する
+	public void saveStudent(Student student);
 
-   public  void saveStudent(Student student);
+	// idで学生情報取得する
+	public Student getStudentById(Long id);
 
-    public Student getStudentById(Long id);
-
-    public void deleteStudent(Long id);
+	// idで学生情報削除する
+	public void deleteStudent(Long id);
 }

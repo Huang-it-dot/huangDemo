@@ -21,39 +21,34 @@ import com.huang.Service.StudentService;
 @RestController
 @RequestMapping("/api")
 public class StudentController {
-    @Autowired
-    private StudentService studentService;
+	@Autowired
+	private StudentService studentService;
 
-    @GetMapping("/students")
-    public List<Student> getAllStudents() {
-        List<Student> students = studentService.getAllStudents();
-        return students; // 返回
-        }
-    
+	// 全ての学生情報を取得する
+	@GetMapping("/students")
+	public List<Student> getAllStudents() {
+		
+		List<Student> students = studentService.getAllStudents();
+		return students;
+	}
 
-    @PostMapping("/addStudent")
-    public List<Student> addStudent(@RequestBody Student student) {
-        // 假设你有一个保存学生的服务
-        studentService.saveStudent(student);
-        // 返回已保存的学生对象
-        List<Student> students = studentService.getAllStudents();
-        return students;
-    }
-    @GetMapping("/students/{id}")
-    public ResponseEntity<Student> getStudent(@PathVariable Long id) {
-        Student student = studentService.getStudentById(id);
-        if (student == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-        return ResponseEntity.ok(student);
-    }
-    
-//  @DeleteMapping("/{id}")
-//  public ResponseEntity<Void> deleteStudent(@PathVariable Long id) {
-//      studentService.deleteStudent(id);
-//      return ResponseEntity.noContent().build();
-//  }
+	// 学生情報を保存する
+	@PostMapping("/addStudent")
+	public List<Student> addStudent(@RequestBody Student student) {
 
+		studentService.saveStudent(student);
+
+		List<Student> students = studentService.getAllStudents();
+		return students;
+	}
+
+	// IDで学生情報を取得する
+	@GetMapping("/students/{id}")
+	public ResponseEntity<Student> getStudent(@PathVariable Long id) {
+		Student student = studentService.getStudentById(id);
+		if (student == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		return ResponseEntity.ok(student);
+	}
 }
-
-

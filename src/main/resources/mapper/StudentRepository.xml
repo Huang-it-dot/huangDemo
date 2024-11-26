@@ -2,23 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.huang.Mapper.StudentRepository">
+	<!--全ての学生情報取得する -->
 	<select id="findAll" resultType="com.huang.Model.Student">
 		SELECT * FROM public.student;
 	</select>
-
+	<!--学生情報保存する -->
 	<insert id="save" parameterType="com.huang.Model.Student"
 		useGeneratedKeys="true" keyProperty="id">
-		INSERT INTO public.student (age,
-		email, name)
+		INSERT INTO public.student (age, email, name)
 		VALUES (#{age}, #{email}, #{name})
-		ON CONFLICT (id) DO
-		NOTHING
+		ON CONFLICT (id)
+		DO UPDATE SET
+		age = EXCLUDED.age,
+		email = EXCLUDED.email,
+		name = EXCLUDED.name
 		RETURNING id;
+
 	</insert>
-	<delete id="deleteById" parameterType="Long"> 
-		DELETE FROM public.student WHERE id = #{id};
+	<!--idで学生情報削除する -->
+	<delete id="deleteById" parameterType="Long">
+		DELETE FROM public.student
+		WHERE id = #{id};
 	</delete>
 
+	<!--idで学生情報取得する -->
 	<select id="getStudentById" parameterType="Long"
 		resultType="com.huang.Model.Student">
 		SELECT * from public.student where id = #{id};
