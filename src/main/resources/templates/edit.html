@@ -1,38 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="/css/myForm.css">
 </head>
-
 <body>
+    <h1>Edit Student</h1>
 
-	<form action="#" th:action="@{/set}" th:object="${personForm}" method="post">
-		<table>
-			<tr>
-				<td>UserId:</td>
-				<td><input type="text" th:field="*{userId}" /></td>
-				<td th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">userId
-					Error</td>
-			</tr>
-			<tr>
-				<td>Name:</td>
-				<td><input type="text" th:field="*{name}" /></td>
-				<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name
-					Error</td>
-			</tr>
-			<tr>
-				<td>Age:</td>
-				<td><input type="text" th:field="*{age}" /></td>
-				<td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age
-					Error</td>
-			</tr>
-			<tr>
-				<td><button type="submit">登録</button></td>
-			</tr>
-		</table>
-	</form>
+    <!-- 显示错误信息 -->
+    <div th:if="${error}" th:text="${error}"></div>
+
+    <!-- 表单 -->
+    <form action="/students/update" method="post">
+        <!-- 隐藏字段传递 ID -->
+        <input type="hidden" name="id" th:value="${student.id}" />
+         <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:value="${student.name}" /><br>
+        </div>
+         <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:value="${student.email}" /><br>
+        </div>
+        <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" th:value="${student.age}" /><br>
+        </div>			
+
+        <button type="submit">Save</button>
+    </form>
 </body>
-
 </html>

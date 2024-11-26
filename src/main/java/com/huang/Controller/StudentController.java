@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ public class StudentController {
     @GetMapping("/students")
     public List<Student> getAllStudents() {
         List<Student> students = studentService.getAllStudents();
-        return students; // 返回视图名
+        return students; // 返回
         }
     
 
@@ -39,11 +40,25 @@ public class StudentController {
 //        return ResponseEntity.status(HttpStatus.CREATED).body(student);
         return students;
     }
-
-    @GetMapping("/{id}")
+    @GetMapping("/students/{id}")
     public ResponseEntity<Student> getStudent(@PathVariable Long id) {
         Student student = studentService.getStudentById(id);
+        if (student == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
         return ResponseEntity.ok(student);
+    }
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateStudent(@PathVariable Long id, @RequestBody Student updatedStudent) {
+        Student existingStudent = studentService.getStudentById(id);
+        if (existingStudent == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Student not found");
+        }
+//        updatedStudent.setId(id); // 确保 ID 不变
+//        Student savedStudent = studentService.save(updatedStudent);
+//        return ResponseEntity.ok(savedStudent);
+		return null;
     }
 }
 //
